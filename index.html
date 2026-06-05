@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AJ Interiors — Premium Interior Design, Hyderabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;1,9..144,300;1,9..144,400&family=Cabinet+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0F0E0C;
+  --paper:#F7F4EF;
+  --warm:#EDE8DF;
+  --accent:#C8401A;
+  --gold:#B8922A;
+  --mid:#7A7570;
+  --border:#DDD8CF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Cabinet Grotesk',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+.cur{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply}
+.cur-r{position:fixed;width:32px;height:32px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .3s cubic-bezier(.25,.46,.45,.94);mix-blend-mode:multiply}
+.cur-r.h{width:48px;height:48px;border-color:var(--ink)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;transition:all .4s}
+nav.s{background:rgba(247,244,239,.94);backdrop-filter:blur(12px);padding:16px 60px;border-bottom:1px solid var(--border)}
+.logo{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.logo em{color:var(--accent);font-style:normal}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:11px 26px;text-decoration:none;border-radius:2px;transition:all .3s}
+.nav-cta:hover{background:var(--accent)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{background:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:120px 60px 80px;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 80% 20%,rgba(200,64,26,.15),transparent 60%)}
+.hero-year{position:absolute;top:100px;left:60px;font-family:'Fraunces',serif;font-size:.75rem;font-weight:300;color:rgba(247,244,239,.3);letter-spacing:.2em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg)}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:32px;animation:fadeUp .8s ease .2s both}
+.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-tag span{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,239,.5)}
+.hero-h1{font-family:'Fraunces',serif;font-size:clamp(3.5rem,5vw,5.5rem);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--paper);margin-bottom:8px;animation:fadeUp .8s ease .4s both}
+.hero-h1 em{color:var(--accent);font-style:italic;font-weight:300}
+.hero-h2{font-family:'Fraunces',serif;font-size:clamp(3.5rem,5vw,5.5rem);font-weight:300;font-style:italic;line-height:1;letter-spacing:-.02em;color:rgba(247,244,239,.4);margin-bottom:48px;animation:fadeUp .8s ease .5s both}
+.hero-desc{font-size:.95rem;line-height:1.8;color:rgba(247,244,239,.55);max-width:360px;margin-bottom:48px;font-weight:400;animation:fadeUp .8s ease .6s both}
+.hero-actions{display:flex;gap:16px;align-items:center;animation:fadeUp .8s ease .7s both}
+.btn-white{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--paper);color:var(--ink);padding:14px 32px;text-decoration:none;border-radius:2px;transition:all .3s;display:inline-flex;align-items:center;gap:10px}
+.btn-white:hover{background:var(--accent);color:var(--paper)}
+.btn-ghost{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,244,239,.5);text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid rgba(247,244,239,.2);padding-bottom:2px;transition:all .3s}
+.btn-ghost:hover{color:var(--paper);border-color:var(--paper)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-right{background:var(--warm);display:flex;flex-direction:column;justify-content:space-between;padding:120px 60px 80px;position:relative;overflow:hidden}
+.hero-right::before{content:'AJ';position:absolute;bottom:-40px;right:-20px;font-family:'Fraunces',serif;font-size:22rem;font-weight:700;color:rgba(15,14,12,.05);line-height:1;pointer-events:none;user-select:none}
+.hero-stats{display:flex;flex-direction:column;gap:32px;position:relative;z-index:1}
+.stat-item{border-bottom:1px solid var(--border);padding-bottom:28px}
+.stat-item:last-child{border-bottom:none;padding-bottom:0}
+.stat-num{font-family:'Fraunces',serif;font-size:3.5rem;font-weight:700;color:var(--ink);line-height:1;display:block}
+.stat-num span{color:var(--accent)}
+.stat-lbl{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--mid);display:block;margin-top:6px}
+.hero-badge{position:relative;z-index:1;background:var(--ink);color:var(--paper);padding:20px 24px;border-radius:4px;margin-top:auto}
+.hero-badge .b-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:400;font-style:italic;display:block;margin-bottom:4px}
+.hero-badge .b-sub{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,244,239,.4)}
+
+/* SCROLL LINE */
+.scroll-line{position:fixed;right:32px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:50}
+.scroll-line .sl-text{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);writing-mode:vertical-rl}
+.scroll-line .sl-bar{width:1px;height:60px;background:linear-gradient(180deg,var(--accent),transparent);animation:slPulse 2s ease infinite}
+@keyframes slPulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.7)}}
+
+/* SERVICES */
+.services{padding:120px 60px;background:var(--paper)}
+.sec-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:80px}
+.eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';display:block;width:24px;height:1.5px;background:var(--accent)}
+.sec-title{font-family:'Fraunces',serif;font-size:clamp(2.2rem,3.5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
+.sec-title em{font-style:italic;font-weight:300;color:var(--mid)}
+.sec-body{font-size:.95rem;line-height:1.8;color:var(--mid);font-weight:400}
+
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border)}
+.svc-item{padding:40px 36px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s;cursor:default}
+.svc-item:nth-child(3n){border-right:none}
+.svc-item:nth-child(4),.svc-item:nth-child(5),.svc-item:nth-child(6){border-bottom:none}
+.svc-item::before{content:'';position:absolute;inset:0;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+.svc-item:hover::before{transform:scaleX(1)}
+.svc-item:hover .svc-n,.svc-item:hover .svc-name,.svc-item:hover .svc-desc{color:var(--paper)}
+.svc-item>*{position:relative;z-index:1}
+.svc-n{font-family:'Fraunces',serif;font-size:.75rem;font-weight:300;color:var(--mid);display:block;margin-bottom:20px;transition:color .3s}
+.svc-icon{width:40px;height:40px;margin-bottom:16px;opacity:.6;transition:opacity .3s}
+.svc-item:hover .svc-icon{opacity:1;filter:brightness(10)}
+.svc-name{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:700;color:var(--ink);display:block;margin-bottom:10px;transition:color .3s;letter-spacing:-.01em}
+.svc-desc{font-size:.82rem;line-height:1.7;color:var(--mid);transition:color .3s;font-weight:400}
+
+/* WHAT WE DO */
+.what{padding:120px 60px;background:var(--ink);position:relative;overflow:hidden}
+.what::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(135deg,rgba(200,64,26,.08),transparent)}
+.what-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:100px;align-items:center}
+.what-left .eyebrow{color:rgba(200,64,26,.7)}
+.what-left .eyebrow::before{background:rgba(200,64,26,.7)}
+.what-left .sec-title{color:var(--paper)}
+.what-left .sec-title em{color:rgba(247,244,239,.3)}
+.what-items{display:flex;flex-direction:column;gap:0}
+.what-item{display:flex;align-items:flex-start;gap:24px;padding:28px 0;border-bottom:1px solid rgba(247,244,239,.08);transition:all .3s;cursor:default}
+.what-item:first-child{border-top:1px solid rgba(247,244,239,.08)}
+.what-item:hover{padding-left:12px}
+.what-item:hover .wi-num{color:var(--accent)}
+.wi-num{font-family:'Fraunces',serif;font-size:.8rem;font-weight:300;color:rgba(247,244,239,.2);width:32px;flex-shrink:0;padding-top:3px;transition:color .3s}
+.wi-content{}
+.wi-title{font-family:'Cabinet Grotesk',sans-serif;font-size:1rem;font-weight:800;color:var(--paper);display:block;margin-bottom:6px;letter-spacing:-.01em}
+.wi-desc{font-size:.82rem;line-height:1.7;color:rgba(247,244,239,.4);font-weight:400}
+
+/* WHY US */
+.why{padding:120px 60px;background:var(--warm);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-visual{position:relative;height:500px}
+.why-box-main{position:absolute;right:0;top:0;width:75%;height:80%;background:var(--ink);border-radius:4px;display:flex;align-items:flex-end;padding:36px;overflow:hidden}
+.why-box-main::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(200,64,26,.2),transparent 60%)}
+.why-box-main-text{position:relative;z-index:1}
+.why-box-main-text .yr{font-family:'Fraunces',serif;font-size:3rem;font-weight:700;color:var(--paper);line-height:1;display:block}
+.why-box-main-text .lb{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(247,244,239,.4);display:block;margin-top:4px}
+.why-box-accent{position:absolute;left:0;bottom:0;width:40%;height:38%;background:var(--accent);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.why-box-accent .n{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--paper);line-height:1}
+.why-box-accent .l{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,244,239,.7)}
+.why-points{display:flex;flex-direction:column;gap:24px;margin-top:32px}
+.why-point{display:flex;gap:16px;align-items:flex-start}
+.wp-icon{width:36px;height:36px;border-radius:2px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--paper)}
+.wp-title{font-size:.9rem;font-weight:800;color:var(--ink);display:block;margin-bottom:3px}
+.wp-desc{font-size:.78rem;line-height:1.6;color:var(--mid)}
+
+/* CONTACT */
+.contact{padding:120px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;background:var(--paper)}
+.contact-left .sec-title{margin-bottom:20px}
+.contact-left .sec-body{margin-bottom:48px}
+.contact-cards{display:flex;flex-direction:column;gap:12px}
+.cc{display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--warm);border:1px solid var(--border);border-radius:2px;text-decoration:none;transition:all .3s}
+.cc:hover{background:var(--ink);border-color:var(--ink);transform:translateX(6px)}
+.cc:hover .cc-label,.cc:hover .cc-value{color:var(--paper)}
+.cc:hover .cc-value{color:var(--accent)!important}
+.cc-icon{width:38px;height:38px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--paper)}
+.cc-label{font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--mid);display:block;transition:color .3s}
+.cc-value{font-family:'Cabinet Grotesk',sans-serif;font-size:.9rem;font-weight:800;color:var(--ink);display:block;margin-top:2px;transition:color .3s}
+
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.cf-group{display:flex;flex-direction:column;gap:6px}
+.cf-group label{font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--mid)}
+.cf-input{border:1px solid var(--border);border-radius:2px;padding:13px 16px;font-family:'Cabinet Grotesk',sans-serif;font-size:.9rem;color:var(--ink);outline:none;transition:border-color .3s;background:var(--paper);font-weight:500}
+.cf-input:focus{border-color:var(--accent)}
+.cf-input::placeholder{color:#C5BFB6}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cf-select{border:1px solid var(--border);border-radius:2px;padding:13px 16px;font-family:'Cabinet Grotesk',sans-serif;font-size:.9rem;color:#C5BFB6;outline:none;background:var(--paper);appearance:none;cursor:pointer;transition:border-color .3s}
+.cf-select:focus{border-color:var(--accent)}
+.cf-submit{font-family:'Cabinet Grotesk',sans-serif;font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--paper);border:none;padding:16px 36px;cursor:pointer;transition:all .3s;align-self:flex-start;border-radius:2px;margin-top:4px}
+.cf-submit:hover{background:var(--accent)}
+
+/* FOOTER */
+footer{background:var(--ink);padding:60px;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;border-top:1px solid rgba(247,244,239,.06)}
+.f-logo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;color:var(--paper);display:block;margin-bottom:12px}
+.f-logo em{color:var(--accent);font-style:normal}
+.f-desc{font-size:.82rem;line-height:1.7;color:rgba(247,244,239,.3);margin-bottom:24px}
+.f-copy{font-size:.62rem;letter-spacing:.1em;color:rgba(247,244,239,.2)}
+.f-copy span{color:var(--accent)}
+.f-col-title{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,244,239,.2);margin-bottom:20px}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-links a{font-size:.82rem;color:rgba(247,244,239,.4);text-decoration:none;transition:color .25s}
+.f-links a:hover{color:var(--accent)}
+
+/* PHONE FAB */
+.phone-fab{position:fixed;bottom:36px;right:36px;z-index:400}
+.phone-btn{width:52px;height:52px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 24px rgba(200,64,26,.4);transition:transform .3s}
+.phone-btn:hover{transform:scale(1.1)}
+.wa-btn{position:fixed;bottom:104px;right:36px;z-index:400;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .3s}
+.wa-btn:hover{transform:scale(1.1)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.reveal.v{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.35s}
+
+@media(max-width:1024px){
+  nav{padding:18px 24px}.nav-links{display:none}
+  nav.s{padding:14px 24px}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:100px 24px 60px}
+  .hero-right{padding:60px 24px;display:none}
+  .services,.what,.why,.contact{padding:80px 24px}
+  .sec-header,.what-grid,.why,.contact{grid-template-columns:1fr;gap:48px}
+  .svc-grid{grid-template-columns:1fr;border:none;display:flex;flex-direction:column;gap:2px}
+  .svc-item{border:1px solid var(--border)!important}
+  .why-visual{height:280px}
+  footer{grid-template-columns:1fr;gap:36px;padding:48px 24px}
+  .scroll-line{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+
+<div class="scroll-line"><span class="sl-text">Scroll</span><div class="sl-bar"></div></div>
+
+<!-- PHONE FAB -->
+<a href="https://wa.me/916281849059?text=Hi%20AJ%20Interiors!%20I%20am%20interested%20in%20your%20interior%20design%20services.%20Please%20get%20in%20touch%20with%20me." class="wa-btn" target="_blank">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">AJ<em>.</em>Interiors</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book Free Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-year">Est. 2008</div>
+    <div class="hero-tag"><span class="dot"></span><span>Hyderabad's Premier Interior Studio</span></div>
+    <h1 class="hero-h1">We Design<br><em>Spaces</em></h1>
+    <div class="hero-h2">You'll Love.</div>
+    <p class="hero-desc">From residential homes to commercial spaces — we craft interiors that blend beauty with purpose. 2D, 3D design & complete execution across Hyderabad.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-white">
+        Book Free Consultation
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="tel:+916281849059" class="btn-ghost">Call Now →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num"><span id="s1">0</span><span>+</span></span>
+        <span class="stat-lbl">Projects Completed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num"><span id="s2">0</span><span>+</span></span>
+        <span class="stat-lbl">Years of Excellence</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num"><span id="s3">0</span><span>%</span></span>
+        <span class="stat-lbl">Client Satisfaction</span>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <span class="b-title">Residential & Commercial Experts</span>
+      <span class="b-sub">Villas · Apartments · Offices · Retail</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="sec-header reveal">
+    <div>
+      <div class="eyebrow">What We Do</div>
+      <h2 class="sec-title">Complete Interior<br><em>Solutions</em></h2>
+    </div>
+    <p class="sec-body">From initial concept to final handover — we handle everything. Our team of designers and craftsmen deliver world-class interiors tailored to your vision and budget.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-item reveal d1">
+      <span class="svc-n">01</span>
+      <svg class="svc-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span class="svc-name">Residential Design</span>
+      <p class="svc-desc">Apartments, villas, bungalows — complete home interiors designed around your lifestyle and personality.</p>
+    </div>
+    <div class="svc-item reveal d2">
+      <span class="svc-n">02</span>
+      <svg class="svc-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      <span class="svc-name">Commercial Design</span>
+      <p class="svc-desc">Offices, retail stores, restaurants, showrooms — spaces that impress clients and energise your team.</p>
+    </div>
+    <div class="svc-item reveal d3">
+      <span class="svc-n">03</span>
+      <svg class="svc-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <span class="svc-name">2D Space Planning</span>
+      <p class="svc-desc">Detailed floor plans and layouts that maximise every square foot before construction begins.</p>
+    </div>
+    <div class="svc-item reveal d1">
+      <span class="svc-n">04</span>
+      <svg class="svc-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+      <span class="svc-name">3D Visualization</span>
+      <p class="svc-desc">Photo-realistic 3D renders so you can see and approve every detail of your space before execution.</p>
+    </div>
+    <div class="svc-item reveal d2">
+      <span class="svc-n">05</span>
+      <svg class="svc-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span class="svc-name">Turnkey Execution</span>
+      <p class="svc-desc">We manage the entire project — materials, contractors, quality control — and hand you the keys.</p>
+    </div>
+    <div class="svc-item reveal d3">
+      <span class="svc-n">06</span>
+      <svg class="svc-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/></svg>
+      <span class="svc-name">Color & Material Consulting</span>
+      <p class="svc-desc">Expert guidance on palettes, materials, textures and finishes that create the perfect atmosphere.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="what" id="about">
+  <div class="what-grid">
+    <div class="what-left reveal">
+      <div class="eyebrow">Our Expertise</div>
+      <h2 class="sec-title" style="color:var(--paper);margin-bottom:0">We Build<br><em>Every Kind</em><br>of Space</h2>
+    </div>
+    <div class="what-items">
+      <div class="what-item reveal d1">
+        <span class="wi-num">01</span>
+        <div class="wi-content"><span class="wi-title">Luxury Villas & Bungalows</span><p class="wi-desc">High-end residential interiors with premium materials, custom furniture and bespoke design solutions for discerning homeowners.</p></div>
+      </div>
+      <div class="what-item reveal d2">
+        <span class="wi-num">02</span>
+        <div class="wi-content"><span class="wi-title">Apartments & Flats</span><p class="wi-desc">Smart, space-efficient designs for 1BHK to 5BHK apartments — maximising beauty and function within any budget.</p></div>
+      </div>
+      <div class="what-item reveal d3">
+        <span class="wi-num">03</span>
+        <div class="wi-content"><span class="wi-title">Corporate Offices</span><p class="wi-desc">Modern workspaces that reflect your brand identity, improve productivity and leave a lasting impression on clients.</p></div>
+      </div>
+      <div class="what-item reveal d4">
+        <span class="wi-num">04</span>
+        <div class="wi-content"><span class="wi-title">Retail & Hospitality</span><p class="wi-desc">Showrooms, restaurants, cafes, hotels — commercial spaces designed to attract customers and maximise dwell time.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="why-visual reveal">
+    <div class="why-box-main">
+      <div class="why-box-main-text">
+        <span class="yr">Since<br>2008</span>
+        <span class="lb">15+ Years of Excellence</span>
+      </div>
+    </div>
+    <div class="why-box-accent">
+      <span class="n">100+</span>
+      <span class="l">Projects</span>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="eyebrow">Why AJ Interiors</div>
+    <h2 class="sec-title" style="margin-bottom:12px">The AJ<br><em>Difference</em></h2>
+    <p class="sec-body" style="margin-bottom:36px">We've been transforming spaces in Hyderabad since 2008. Our track record speaks for itself — 100+ completed projects and hundreds of happy families and businesses.</p>
+    <div class="why-points">
+      <div class="why-point">
+        <div class="wp-icon" style="background:var(--accent)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div><span class="wp-title">15+ Years of Experience</span><p class="wp-desc">Established in 2008 — one of Hyderabad's most trusted interior studios with a proven track record.</p></div>
+      </div>
+      <div class="why-point">
+        <div class="wp-icon" style="background:var(--gold)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div><span class="wp-title">2D & 3D Design Expertise</span><p class="wp-desc">Full design capability — detailed floor plans, realistic 3D renders, and complete execution under one roof.</p></div>
+      </div>
+      <div class="why-point">
+        <div class="wp-icon" style="background:var(--ink)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div><span class="wp-title">On-Time Delivery</span><p class="wp-desc">We respect your time and budget. Every project is delivered on schedule with complete transparency.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <div class="eyebrow">Get In Touch</div>
+    <h2 class="sec-title" style="margin-bottom:16px">Let's Start<br>Your <em>Project</em></h2>
+    <p class="sec-body" style="margin-bottom:40px">Ready to transform your space? Book a free consultation and let's discuss your vision, budget and timeline.</p>
+    <div class="contact-cards">
+      <a href="tel:+916281849059" class="cc">
+        <div class="cc-icon" style="background:var(--accent)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div><span class="cc-label">Call Us</span><span class="cc-value">+91 62818 49059</span></div>
+      </a>
+      <a href="https://wa.me/916281849059?text=Hi%20AJ%20Interiors!%20I%20am%20interested%20in%20your%20interior%20design%20services.%20Please%20get%20in%20touch%20with%20me." class="cc" target="_blank">
+        <div class="cc-icon" style="background:#25D366"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+        <div><span class="cc-label">WhatsApp</span><span class="cc-value">Chat with us instantly</span></div>
+      </a>
+      <div class="cc">
+        <div class="cc-icon" style="background:var(--ink)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+        <div><span class="cc-label">Studio</span><span class="cc-value">Banjara Hills, Hyderabad</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal">
+    <form class="contact-form" action="https://formspree.io/f/mlgkdklj" method="POST" onsubmit="handleForm(event)">
+      <div class="cf-row">
+        <div class="cf-group"><label>Your Name</label><input type="text" class="cf-input" placeholder="Rahul Sharma" required></div>
+        <div class="cf-group"><label>Phone Number</label><input type="tel" class="cf-input" placeholder="+91 XXXXX XXXXX" required></div>
+      </div>
+      <div class="cf-group"><label>Email Address</label><input type="email" class="cf-input" placeholder="rahul@email.com"></div>
+      <div class="cf-group"><label>Type of Project</label>
+        <select class="cf-select">
+          <option value="" disabled selected>Select project type</option>
+          <option>Residential — Apartment</option>
+          <option>Residential — Villa / Bungalow</option>
+          <option>Commercial — Office</option>
+          <option>Commercial — Retail / Showroom</option>
+          <option>Restaurant / Cafe / Hotel</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="cf-group"><label>Budget Range (Optional)</label><input type="text" class="cf-input" placeholder="e.g. ₹10L – ₹25L"></div>
+      <div class="cf-group"><label>Tell Us About Your Project</label><textarea class="cf-input" rows="3" placeholder="Brief description of your space and requirements..."></textarea></div>
+      <button type="submit" class="cf-submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <span class="f-logo">AJ<em>.</em>Interiors</span>
+    <p class="f-desc">Premium interior design for residential and commercial spaces across Hyderabad. Est. 2008 — 15+ years of transforming spaces.</p>
+    <p class="f-copy">© 2025 <span>AJ Interiors</span>. All rights reserved.</p>
+  </div>
+  <div>
+    <div class="f-col-title">Services</div>
+    <ul class="f-links">
+      <li><a href="#">Residential Design</a></li>
+      <li><a href="#">Commercial Spaces</a></li>
+      <li><a href="#">2D Space Planning</a></li>
+      <li><a href="#">3D Visualization</a></li>
+      <li><a href="#">Turnkey Execution</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="f-col-title">Contact</div>
+    <ul class="f-links">
+      <li><a href="tel:+916281849059">+91 62818 49059</a></li>
+      <li><a href="https://wa.me/916281849059?text=Hi%20AJ%20Interiors!%20I%20am%20interested%20in%20your%20interior%20design%20services.%20Please%20get%20in%20touch%20with%20me.">WhatsApp Us</a></li>
+      <li><a href="#">Banjara Hills, Hyderabad</a></li>
+      <li><a href="#contact">Book Consultation</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function a(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(a)})();
+document.querySelectorAll('a,button,.svc-item,.what-item,.cc,.why-point').forEach(el=>{el.addEventListener('mouseenter',()=>curR.classList.add('h'));el.addEventListener('mouseleave',()=>curR.classList.remove('h'))});
+
+// Navbar
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('s',scrollY>60));
+
+// Scroll reveal
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Counters
+function counter(el,target,duration){
+  let start=0;
+  const step=target/(duration/16);
+  const t=setInterval(()=>{start=Math.min(start+step,target);el.textContent=Math.floor(start);if(start>=target)clearInterval(t)},16);
+}
+const ho=new IntersectionObserver(e=>{
+  if(e[0].isIntersecting){
+    counter(document.getElementById('s1'),100,2000);
+    counter(document.getElementById('s2'),15,1500);
+    counter(document.getElementById('s3'),98,2000);
+    ho.disconnect();
+  }
+});
+ho.observe(document.querySelector('.hero-stats')||document.querySelector('.hero'));
+
+// Form
+async function handleForm(e){
+  e.preventDefault();
+  const form=e.target;
+  const btn=form.querySelector('.cf-submit');
+  btn.textContent='Sending...';
+  btn.disabled=true;
+  try{
+    const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+    if(res.ok){
+      btn.textContent='Message Sent ✓';
+      btn.style.background='#25D366';
+      form.reset();
+      setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';btn.disabled=false},4000);
+    } else {
+      btn.textContent='Try Again';
+      btn.style.background='#C8401A';
+      btn.disabled=false;
+    }
+  } catch(err){
+    btn.textContent='Try Again';
+    btn.style.background='#C8401A';
+    btn.disabled=false;
+  }
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+  });
+});
+</script>
+</body>
+</html>
